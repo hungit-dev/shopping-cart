@@ -1,0 +1,82 @@
+.featuredItem,
+.shopItem {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    box-shadow: var(--box-shadow);
+    padding: var(--padding);
+    background-color: white;
+    gap: calc(var(--gap) - 2px);
+}
+
+.shopItem {
+    height: 400px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.shopItem:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+
+.featuredItem h3,
+.shopItem h3 {
+    font-size: var(--font-size-text-s);
+}
+
+.featuredItem p,
+.shopItem p {
+    color: #2563EB;
+}
+
+.shopItem input {
+    width: 30%;
+    border-radius: 5px;
+    height: 25px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+
+}
+
+.shopItem button {
+    width: 80%;
+    height: 40px;
+    border-radius: 5px;
+}
+
+input:focus {
+    outline: none;
+}
+
+.quantitySelector {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.quantitySelector button {
+    width: 30px;
+    height: 30px;
+    border-radius: 0;
+    background-color: #E0E0E0;
+    color: black;
+    border-radius: 5px;
+    opacity: 80%;
+    cursor: pointer;
+}
+
+.quantitySelector button:hover {
+    background-color: #d5d5d5;
+    opacity: 1;
+}
+
+.quantitySelector button:active {
+    background-color: #c0c0c0;
+    transform: scale(0.95);
+}

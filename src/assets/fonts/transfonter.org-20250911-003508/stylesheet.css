@@ -1,0 +1,9 @@
+@font-face {
+    font-family: '.SF NS Text';
+    src: url('SFNSText-Regular.woff2') format('woff2'),
+        url('SFNSText-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
