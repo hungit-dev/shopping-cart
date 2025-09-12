@@ -4,7 +4,6 @@
     align-items: center;
     padding: var(--padding);
     gap: calc(var(--gap)*2);
-
 }
 
 .cartItemsContainer {

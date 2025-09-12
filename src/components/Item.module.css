@@ -21,7 +21,6 @@
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
 }
 
-
 .featuredItem h3,
 .shopItem h3 {
     font-size: var(--font-size-text-s);
@@ -82,7 +81,6 @@ input:focus {
 
 /* cartItem */
 
-
 .cartItem {
     display: flex;
     justify-content: space-between;
@@ -110,8 +108,6 @@ input:focus {
 .productInfo h2 {
     font-size: 18px;
 }
-
-
 
 .itemControls,
 .itemControls div {

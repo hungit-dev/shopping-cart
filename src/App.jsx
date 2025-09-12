@@ -56,10 +56,8 @@ const handleDecreaseQuantityInCart=(id)=>{
       setIsLoading(false)
     }
     fetchItems()   
-    
 },[]
  )
-
 
   return (
     <>

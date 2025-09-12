@@ -23,11 +23,10 @@ const Cart=()=>{
         {isEmpty && <h1 > Your cart is empty 🛒</h1>}
         
         <div className={styles.cartItemsContainer}>
-        {cartItems.map((item)=>(
+        {cartItems.map((item)=>( 
+            <CartItem  key={item.id} img={item.src} price={item.price} title={item.title} quantity={item.quantity} id={item.id} handleRemove={handleRemoveItemFromCart} handleDecreaseQuantityInCart={handleDecreaseQuantityInCart} handleIncreaseQuantityInCart={handleIncreaseQuantityInCart}/>
                 
-                     <CartItem  key={item.id} img={item.src} price={item.price} title={item.title} quantity={item.quantity} id={item.id} handleRemove={handleRemoveItemFromCart} handleDecreaseQuantityInCart={handleDecreaseQuantityInCart} handleIncreaseQuantityInCart={handleIncreaseQuantityInCart}/>
-                
-                 ))}
+            ))}
         </div>
         {total>0 && <div className={styles.total}>Total: {total}$</div>}
         </div>

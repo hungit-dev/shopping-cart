@@ -3,7 +3,6 @@ import { useState } from "react";
 import removeIcon from "../assets/icons/remove-item-icon.svg";
 //item component for home page
 const FeaturedItem=({img,title,price})=>{
-    
     return (
         <>
         <div className={styles.featuredItem}>
@@ -19,9 +18,7 @@ const FeaturedItem=({img,title,price})=>{
 
 //item component for shop page
 const ShopItem=({img,title,price,handleAddToCart})=>{
-  
   const [quantity,setQuantity]=useState(1)//run every time the component gets mounted
-  
     //increase , decrease the value of input(quantity)
     const handleDecrement=()=>{
       if(quantity>1){
@@ -30,7 +27,6 @@ const ShopItem=({img,title,price,handleAddToCart})=>{
     }
     const handleIncrement=()=>{
       setQuantity(quantity+1)
-
     }
     return (
         <>
@@ -71,9 +67,7 @@ const CartItem=({img,title,price,quantity,handleRemove,id,handleIncreaseQuantity
                 </div>
                 <img src={removeIcon} alt="remove-item" width={40} onClick={()=>{handleRemove(id)}}/>
             </div>
-            
         </div>
-       
     </>
   )
 }

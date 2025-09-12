@@ -14,14 +14,13 @@ const Shop=()=>{
         <div className={styles.shop}>
              {/* Show loading if the data hasn't been fetched yet*/}
             {isLoading&&<div className={styles.loading}>Loading...</div>}
-           {itemDataList.map((item)=>(
+            {itemDataList.map((item)=>(
                 <div key={item.id}>
                      <ShopItem  img={item.image} price={item.price} title={item.title}  handleAddToCart={handleAddToCart}/>
                 </div>
                  ))}
         </div>
         </div>
-        
         </>
     )
 }

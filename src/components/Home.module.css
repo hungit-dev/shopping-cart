@@ -34,15 +34,12 @@
     gap: var(--gap);
 }
 
-
 .featuredProducts {
     display: flex;
     align-items: center;
     flex-direction: column;
     gap: var(--gap);
 }
-
-
 
 .titleWrapper {
     display: flex;
@@ -57,9 +54,6 @@
     gap: var(--gap);
     width: 65%;
 }
-
-
-
 
 .featureItem {
     display: flex;
