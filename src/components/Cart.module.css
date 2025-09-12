@@ -1,7 +1,20 @@
-.empty {
-    font-size: var(--font-size-text-m);
-    font-weight: bold;
+.cart {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     padding: var(--padding);
+    gap: calc(var(--gap)*2);
+
+}
+
+.cartItemsContainer {
+    display: grid;
+    justify-items: center;
+    width: 100%;
+    gap: var(--gap);
+}
+
+.cart h1 {
+    font-size: 22px;
+    font-weight: bold;
 }

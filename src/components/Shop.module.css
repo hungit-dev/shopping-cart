@@ -1,6 +1,8 @@
 .shopWrapper {
     display: flex;
-    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: var(--padding);
 }
 
 .loading {
@@ -17,6 +19,7 @@
 
 @media (max-width:600px) {
     .shop {
-        width: 90%;
+        width: 100%;
+        gap: calc(var(--gap)*1.5);
     }
 }

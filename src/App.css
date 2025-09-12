@@ -71,6 +71,11 @@ button:hover {
     background-color: #1E40AF;
 }
 
+button:active {
+    transform: scale(0.97);
+    background-color: #1A357F;
+}
+
 p {
     color: #555555;
     ;

@@ -5,7 +5,7 @@ import { useOutletContext } from "react-router";
 const Home=()=>{
     const {itemDataList}=useOutletContext();
     const {isLoading}=useOutletContext();
-    console.log(itemDataList)
+   
     return (
         <>
         <div className={styles.displayContent}>

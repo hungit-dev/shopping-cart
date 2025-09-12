@@ -8,7 +8,46 @@ import fetchData from "./services/api.js"
 function App() {
  const [isLoading,setIsLoading]=useState(true)
  const[itemDataList,setItemDataList] =useState([])
- // Automatically Fetch 10 items from the API, where each item is an object, and assign the array to itemDatalist when reloading page
+ const [cartItems,setCartItems]=useState([])
+ //if user click addToCart button, it will push that order to cartItems and then send it to "Cart Page", which displays user's cart
+ const handleAddToCart=(title,src,quantity,price)=>{
+      setCartItems([...cartItems,{
+        title: title,
+        src: src,
+        id:crypto.randomUUID(), //generate unique id for each order in cart
+        quantity:quantity,
+        price:price
+       
+      }])
+ }
+ //remove item from the cartItems list
+ const handleRemoveItemFromCart=(idToRemove)=>{
+     const newCartItems=cartItems.filter(item => item.id !== idToRemove)
+     setCartItems(newCartItems)
+ }
+ //increase quantity for item in cart
+ const handleIncreaseQuantityInCart=(id)=>{
+      setCartItems(cartItems.map(item =>
+        item.id === id
+        ? { ...item, quantity: item.quantity + 1} // update multiple fields
+        : item
+  )
+);
+ }
+
+//decrease quantity for item in cart
+const handleDecreaseQuantityInCart=(id)=>{
+  setCartItems(cartItems.map(item =>
+        item.id === id
+        ? { ...item, quantity: item.quantity - 1} // update multiple fields
+        : item
+  )
+  .filter(item => item.quantity > 0)//delete item if quantity=0
+)
+}
+
+ 
+ // Automatically Fetch items from the API, where each item is an object, and assign the array to itemDatalist when reloading page, itemDataList is a list of data which we will use for all of our pages
  useEffect(
   ()=>{
     const fetchItems=async()=>{ 
@@ -20,7 +59,7 @@ function App() {
     
 },[]
  )
-console.log(itemDataList)
+
 
   return (
     <>
@@ -41,7 +80,7 @@ console.log(itemDataList)
     {/* Main*/}
     <main>
        {/* Lifting state and sharing data with child components */}
-     <Outlet context={{itemDataList,isLoading}}/>
+     <Outlet context={{itemDataList,isLoading,cartItems,handleAddToCart,handleRemoveItemFromCart,handleIncreaseQuantityInCart,handleDecreaseQuantityInCart}}/>
     </main>
      
     {/* Footer*/}
