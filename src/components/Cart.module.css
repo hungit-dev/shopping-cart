@@ -12,9 +12,14 @@
     justify-items: center;
     width: 100%;
     gap: var(--gap);
+    margin-top: 2vw;
 }
 
 .cart h1 {
     font-size: 22px;
     font-weight: bold;
+}
+
+.total {
+    font-size: var(--font-size-text-m);
 }

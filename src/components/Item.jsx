@@ -60,7 +60,7 @@ const CartItem=({img,title,price,quantity,handleRemove,id,handleIncreaseQuantity
                 <img src={img} alt={title} width={50} height={70}/>
                 <div className={styles.productInfo}>
                     <h2>Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops</h2>
-                    <p>Total: {price*quantity}$</p>
+                    <p>Total: {(price*quantity).toFixed(2)}$</p>
                 </div>
             </div>
             <div className={styles.itemControls}>

@@ -72,7 +72,7 @@ const handleDecreaseQuantityInCart=(id)=>{
       <ul id='right-side-nav-list'>
         <li><Link to="home">Home</Link></li>
         <li><Link to="shop">Shop</Link></li>
-        <li><Link to="cart">Cart</Link></li>
+        <li><Link to="cart">Cart { cartItems.length>0 && <div>{cartItems.length}</div>}</Link></li>
       </ul>
      </nav>
     </header>

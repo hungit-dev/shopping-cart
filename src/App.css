@@ -86,7 +86,7 @@ p {
     display: flex;
     justify-content: space-between;
     background-color: #2563EB;
-    padding: var(--padding);
+    padding: calc(var(--padding)*1.5);
     align-items: center;
     height: 100%;
 }
@@ -105,6 +105,25 @@ p {
     display: flex;
     gap: var(--gap);
     font-size: 1.2rem;
+}
+
+#right-side-nav-list li {
+    position: relative;
+    padding: 8px;
+}
+
+#right-side-nav-list li div {
+    position: absolute;
+    top: -6px;
+    right: -8px;
+    color: white;
+    background-color: red;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #left-side-nav-list {

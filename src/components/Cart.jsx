@@ -11,13 +11,17 @@ const Cart=()=>{
     if(cartItems.length>0){
          isEmpty=false;
     }
+    //calculate total money based on the number of products
+    const total = cartItems.reduce((accumulator, item) => {
+    return accumulator + item.price * item.quantity;
+    }, 0).toFixed(2);
     console.log(cartItems)
     return (
         <>
         <div className={styles.cart}>
             {/*Display a message if the cart is empty */}
         {isEmpty && <h1 > Your cart is empty 🛒</h1>}
-        <div></div>
+        
         <div className={styles.cartItemsContainer}>
         {cartItems.map((item)=>(
                 
@@ -25,6 +29,7 @@ const Cart=()=>{
                 
                  ))}
         </div>
+        {total>0 && <div className={styles.total}>Total: {total}$</div>}
         </div>
         </>
     )
