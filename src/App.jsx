@@ -2,14 +2,14 @@
 
 import { useEffect,useState } from 'react';
 import './App.css'
-import {Link} from "react-router"
-import { Outlet } from "react-router";
+import {Link} from "react-router-dom"
+import { Outlet } from "react-router-dom";
 import fetchData from "./services/api.js"
 function App() {
  const [isLoading,setIsLoading]=useState(true)
  const[itemDataList,setItemDataList] =useState([])
  const [cartItems,setCartItems]=useState([])
- //if user click addToCart button, it will push that order to cartItems and then send it to "Cart Page", which displays user's cart
+ //if user click addToCart button, it will add that item and its properties to cartItems, and then send it to "Cart Page", which displays user's cart
  const handleAddToCart=(title,src,quantity,price)=>{
       setCartItems([...cartItems,{
         title: title,
@@ -20,26 +20,26 @@ function App() {
        
       }])
  }
- //remove item from the cartItems list
+ //remove selected item from the cartItems list
  const handleRemoveItemFromCart=(idToRemove)=>{
      const newCartItems=cartItems.filter(item => item.id !== idToRemove)
      setCartItems(newCartItems)
  }
- //increase quantity for item in cart
+ //increase quantity for selected item in cartItems
  const handleIncreaseQuantityInCart=(id)=>{
       setCartItems(cartItems.map(item =>
         item.id === id
-        ? { ...item, quantity: item.quantity + 1} // update multiple fields
+        ? { ...item, quantity: item.quantity + 1} // // increase quantity of matching item
         : item
   )
 );
  }
 
-//decrease quantity for item in cart
+//decrease quantity for  selected item in cartItems
 const handleDecreaseQuantityInCart=(id)=>{
   setCartItems(cartItems.map(item =>
         item.id === id
-        ? { ...item, quantity: item.quantity - 1} // update multiple fields
+        ? { ...item, quantity: item.quantity - 1} // // decrease quantity of matching item
         : item
   )
   .filter(item => item.quantity > 0)//delete item if quantity=0
@@ -77,7 +77,7 @@ const handleDecreaseQuantityInCart=(id)=>{
      
     {/* Main*/}
     <main>
-       {/* Lifting state and sharing data with child components */}
+       {/* Lifting states and sharing data with child components */}
      <Outlet context={{itemDataList,isLoading,cartItems,handleAddToCart,handleRemoveItemFromCart,handleIncreaseQuantityInCart,handleDecreaseQuantityInCart}}/>
     </main>
      

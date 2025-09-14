@@ -1,12 +1,10 @@
 import styles from "./Shop.module.css";
 import {ShopItem} from "./Item";
-import { useOutletContext } from "react-router";
+import { useOutletContext } from "react-router-dom";
 const Shop=()=>{
     const {itemDataList}=useOutletContext()
     const {isLoading}=useOutletContext()
-    const {cartItems}=useOutletContext()
     const {handleAddToCart}=useOutletContext()
-    console.log(cartItems)
     return (
         <>
         <div className={styles.shopWrapper}>

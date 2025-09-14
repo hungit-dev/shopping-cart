@@ -1,7 +1,7 @@
 import styles from "./Home.module.css";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 import {FeaturedItem} from "./Item";
-import { useOutletContext } from "react-router";
+import { useOutletContext } from "react-router-dom";
 const Home=()=>{
     const {itemDataList}=useOutletContext();
     const {isLoading}=useOutletContext();

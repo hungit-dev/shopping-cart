@@ -1,6 +1,9 @@
 import styles from "./Item.module.css";
 import { useState } from "react";
 import removeIcon from "../assets/icons/remove-item-icon.svg";
+import PropTypes from 'prop-types';
+
+
 //item component for home page
 const FeaturedItem=({img,title,price})=>{
     return (
@@ -15,6 +18,15 @@ const FeaturedItem=({img,title,price})=>{
         </>
     )
 }
+FeaturedItem.propTypes={
+  img: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  price: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.string
+  ]).isRequired
+}
+
 
 //item component for shop page
 const ShopItem=({img,title,price,handleAddToCart})=>{
@@ -46,6 +58,16 @@ const ShopItem=({img,title,price,handleAddToCart})=>{
         </>
     )
 }
+ShopItem.propTypes={
+  img: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  price: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.string
+  ]).isRequired,
+  handleAddToCart:PropTypes.func.isRequired
+}
+
 
 //item component for cart page
 const CartItem=({img,title,price,quantity,handleRemove,id,handleIncreaseQuantityInCart,handleDecreaseQuantityInCart})=>{
@@ -55,7 +77,7 @@ const CartItem=({img,title,price,quantity,handleRemove,id,handleIncreaseQuantity
             <div className={styles.infoWrapper}>
                 <img src={img} alt={title} width={50} height={70}/>
                 <div className={styles.productInfo}>
-                    <h2>Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops</h2>
+                    <h2>{title}</h2>
                     <p>Total: {(price*quantity).toFixed(2)}$</p>
                 </div>
             </div>
@@ -70,5 +92,21 @@ const CartItem=({img,title,price,quantity,handleRemove,id,handleIncreaseQuantity
         </div>
     </>
   )
+}
+CartItem.propTypes={
+  img: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  price: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.string
+  ]).isRequired,
+  quantity: PropTypes.number.isRequired,
+  id: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.string
+  ]).isRequired,
+  handleRemove:PropTypes.func.isRequired,
+  handleIncreaseQuantityInCart:PropTypes.func.isRequired,
+  handleDecreaseQuantityInCart:PropTypes.func.isRequired,
 }
 export {FeaturedItem,ShopItem,CartItem} 

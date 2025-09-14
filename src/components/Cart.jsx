@@ -1,5 +1,5 @@
 import styles from "./Cart.module.css";
-import { useOutletContext } from "react-router";
+import { useOutletContext } from "react-router-dom";
 import { CartItem } from "./Item";
 
 const Cart=()=>{
@@ -7,7 +7,7 @@ const Cart=()=>{
     const {handleRemoveItemFromCart}=useOutletContext()
     const {handleIncreaseQuantityInCart}=useOutletContext()
     const {handleDecreaseQuantityInCart}=useOutletContext()
-    let isEmpty=true; //check if the cart is empty
+    let isEmpty=true; //If cart has no item, its empty
     if(cartItems.length>0){
          isEmpty=false;
     }
