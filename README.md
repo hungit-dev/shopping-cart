@@ -1,6 +1,8 @@
 # Shopping Cart
 
-A simple React shopping cart app that displays products, allows adding/removing items, adjusting quantities, and calculates the total price.
+-A simple React shopping cart app that displays products, allows adding/removing items, adjusting quantities, and calculates the total price.
+
+-Live Preview: https://hungit-dev-shopping-cart.netlify.app/
 
 ## Features
 
