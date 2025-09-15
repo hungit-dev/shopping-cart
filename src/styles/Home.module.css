@@ -1,0 +1,108 @@
+.displayContent {
+  width: 100%;
+  height: 100%;
+  padding: 1.5vh;
+  display: flex;
+  flex-direction: column;
+  gap: 8vh;
+}
+
+.hero {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2vh;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  text-align: center;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.whyChooseUs {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  gap: 2vh;
+}
+
+.featuredProducts {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 2vh;
+}
+
+.titleWrapper {
+  display: flex;
+  justify-content: flex-start;
+  width: 65%;
+}
+
+.features,
+.itemWrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2vh;
+  width: 65%;
+}
+
+.featureItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5vh;
+  background-color: #f9fafb;
+  box-shadow: var(--box-shadow);
+  gap: 10px;
+  padding: 4vh;
+}
+
+.featureItem h3 {
+  font-size: 1.2rem;
+  color: #2563eb;
+}
+
+.featureItem p {
+  text-align: center;
+}
+
+.ctaSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2vh;
+  padding: 1.5vh;
+}
+
+.ctaSection h2 {
+  font-size: 2rem;
+  text-align: center;
+}
+
+.ctaSection button {
+  width: 180px;
+}
+
+@media (max-width: 600px) {
+  html {
+    font-size: 13px;
+  }
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .titleWrapper,
+  .features,
+  .itemWrapper {
+    width: 90%;
+  }
+}

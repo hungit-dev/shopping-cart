@@ -1,0 +1,24 @@
+.cart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5vh;
+  gap: 4vh;
+}
+
+.cartItemsContainer {
+  display: grid;
+  justify-items: center;
+  width: 100%;
+  gap: 2vh;
+  margin-top: 2vw;
+}
+
+.cart h1 {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.total {
+  font-size: 1.2rem;
+}

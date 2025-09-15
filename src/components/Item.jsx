@@ -1,112 +1,131 @@
-import styles from "./Item.module.css";
+import styles from "../styles/Item.module.css";
 import { useState } from "react";
 import removeIcon from "../assets/icons/remove-item-icon.svg";
-import PropTypes from 'prop-types';
-
+import PropTypes from "prop-types";
 
 //item component for home page
-const FeaturedItem=({img,title,price})=>{
-    return (
-        <>
-        <div className={styles.featuredItem}>
-          <img src={img} alt={title} width={80} height={110} />
-          <h3>{title}</h3>
-          <div>
-          <p>{price}$</p>
-          </div>
+const FeaturedItem = ({ img, title, price }) => {
+  return (
+    <>
+      <div className={styles.featuredItem}>
+        <img src={img} alt={title} width={80} height={110} />
+        <h3>{title}</h3>
+        <div>
+          <p>${price}</p>
         </div>
-        </>
-    )
-}
-FeaturedItem.propTypes={
+      </div>
+    </>
+  );
+};
+FeaturedItem.propTypes = {
   img: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  price: PropTypes.oneOfType([
-    PropTypes.number,
-    PropTypes.string
-  ]).isRequired
-}
-
+  price: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
+};
 
 //item component for shop page
-const ShopItem=({img,title,price,handleAddToCart})=>{
-  const [quantity,setQuantity]=useState(1)//run every time the component gets mounted
-    //increase , decrease the value of input(quantity)
-    const handleDecrement=()=>{
-      if(quantity>1){
-        setQuantity(quantity-1)
-      }
+const ShopItem = ({ img, title, price, handleAddToCart }) => {
+  const [quantity, setQuantity] = useState(1); //run every time the component gets mounted
+  //increase , decrease the value of input(quantity)
+  const handleDecrement = () => {
+    if (quantity > 1) {
+      setQuantity(quantity - 1);
     }
-    const handleIncrement=()=>{
-      setQuantity(quantity+1)
-    }
-    return (
-        <>
-        <div className={styles.shopItem}>
-          <img src={img} alt={title} width={80} height={110} />
-          <h3>{title}</h3>
-          <div>
-          <p>{price}$</p>
-          </div>
-          <div className={styles.quantitySelector}>
-            <button onClick={handleDecrement}>-</button>
-           <input type="number" value={quantity} min={1}/>
-           <button onClick={handleIncrement}>+</button>
-           </div>
-           <button onClick={()=>{handleAddToCart(title,img,quantity,price)}}>Add To Cart</button>
+  };
+  const handleIncrement = () => {
+    setQuantity(quantity + 1);
+  };
+  return (
+    <>
+      <div className={styles.shopItem}>
+        <img src={img} alt={title} width={80} height={110} />
+        <h3>{title}</h3>
+        <div>
+          <p>${price}</p>
         </div>
-        </>
-    )
-}
-ShopItem.propTypes={
+        <div className={styles.quantitySelector}>
+          <button onClick={handleDecrement}>-</button>
+          <input type="number" value={quantity} min={1} />
+          <button onClick={handleIncrement}>+</button>
+        </div>
+        <button
+          onClick={() => {
+            handleAddToCart(title, img, quantity, price);
+          }}
+        >
+          Add To Cart
+        </button>
+      </div>
+    </>
+  );
+};
+ShopItem.propTypes = {
   img: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  price: PropTypes.oneOfType([
-    PropTypes.number,
-    PropTypes.string
-  ]).isRequired,
-  handleAddToCart:PropTypes.func.isRequired
-}
-
+  price: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
+  handleAddToCart: PropTypes.func.isRequired,
+};
 
 //item component for cart page
-const CartItem=({img,title,price,quantity,handleRemove,id,handleIncreaseQuantityInCart,handleDecreaseQuantityInCart})=>{
+const CartItem = ({
+  img,
+  title,
+  price,
+  quantity,
+  handleRemove,
+  id,
+  handleIncreaseQuantityInCart,
+  handleDecreaseQuantityInCart,
+}) => {
   return (
-    <>     
-           <div className={styles.cartItem}>
-            <div className={styles.infoWrapper}>
-                <img src={img} alt={title} width={50} height={70}/>
-                <div className={styles.productInfo}>
-                    <h2>{title}</h2>
-                    <p>Total: {(price*quantity).toFixed(2)}$</p>
-                </div>
-            </div>
-            <div className={styles.itemControls}>
-                <div>
-                   <button onClick={()=>{handleDecreaseQuantityInCart(id)}}>-</button>
-                   <span>{quantity}</span>
-                   <button onClick={()=>{handleIncreaseQuantityInCart(id)}}>+</button>
-                </div>
-                <img src={removeIcon} alt="remove-item" width={40} onClick={()=>{handleRemove(id)}}/>
-            </div>
+    <>
+      <div className={styles.cartItem}>
+        <div className={styles.infoWrapper}>
+          <img src={img} alt={title} width={50} height={70} />
+          <div className={styles.productInfo}>
+            <h2>{title}</h2>
+            <p>Total: ${(price * quantity).toFixed(2)}</p>
+          </div>
         </div>
+        <div className={styles.itemControls}>
+          <div>
+            <button
+              onClick={() => {
+                handleDecreaseQuantityInCart(id);
+              }}
+            >
+              -
+            </button>
+            <span>{quantity}</span>
+            <button
+              onClick={() => {
+                handleIncreaseQuantityInCart(id);
+              }}
+            >
+              +
+            </button>
+          </div>
+          <img
+            src={removeIcon}
+            alt="remove-item"
+            width={40}
+            onClick={() => {
+              handleRemove(id);
+            }}
+          />
+        </div>
+      </div>
     </>
-  )
-}
-CartItem.propTypes={
+  );
+};
+CartItem.propTypes = {
   img: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  price: PropTypes.oneOfType([
-    PropTypes.number,
-    PropTypes.string
-  ]).isRequired,
+  price: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
   quantity: PropTypes.number.isRequired,
-  id: PropTypes.oneOfType([
-    PropTypes.number,
-    PropTypes.string
-  ]).isRequired,
-  handleRemove:PropTypes.func.isRequired,
-  handleIncreaseQuantityInCart:PropTypes.func.isRequired,
-  handleDecreaseQuantityInCart:PropTypes.func.isRequired,
-}
-export {FeaturedItem,ShopItem,CartItem} 
+  id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
+  handleRemove: PropTypes.func.isRequired,
+  handleIncreaseQuantityInCart: PropTypes.func.isRequired,
+  handleDecreaseQuantityInCart: PropTypes.func.isRequired,
+};
+export { FeaturedItem, ShopItem, CartItem };
